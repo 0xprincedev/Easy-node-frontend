@@ -9,7 +9,7 @@ const RoundButton = ({children, disable, color, size, onClick, reverse, width, h
 }
 
 const Button = styled.button`
-    width: ${(({width}: PropsType) => width || '100%')};;
+    width: ${(({width}: PropsType) => width || 'fit-content')};;
     height: ${(({height}: PropsType) => height || '35px')};;
     display: flex;
     align-items: center;
@@ -22,6 +22,7 @@ const Button = styled.button`
     border-radius: 50rem;
     cursor: pointer;
     transition: all 0.5s;
+    padding: 5px 15px;
     &:hover {
         background: ${(({reverse}: PropsType) => !reverse ? '#df3f3d7a' : '#df3f3d22')};
     }

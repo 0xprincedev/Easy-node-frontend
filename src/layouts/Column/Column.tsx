@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const Column = ({children, gap, width, minWidth, maxWidth}: PropsType) => {
+const Column = ({children, gap, width, minWidth, maxWidth, verticalAlign, horizontalAlign}: PropsType) => {
     return (
-        <Div gap={gap} width={width} minWidth={minWidth} maxWidth={maxWidth}>{children}</Div>
+        <Div gap={gap} width={width} minWidth={minWidth} maxWidth={maxWidth} verticalAlign={verticalAlign} horizontalAlign={horizontalAlign}>{children}</Div>
     )
 }
 
@@ -11,7 +11,9 @@ interface PropsType {
     children?: any,
     gap?: string,
     minWidth?: string,
-    maxWidth?: string
+    maxWidth?: string,
+    verticalAlign?: string,
+    horizontalAlign?: string;
 }
 
 const Div = styled.div`
@@ -23,6 +25,8 @@ const Div = styled.div`
     flex: ${({width}: PropsType) => width === "0" ? 1 : ''};
     display: flex;
     flex-direction: column;
+    justify-content: ${({verticalAlign}: PropsType) => verticalAlign || 'flex-start'};
+    align-items: ${({horizontalAlign}: PropsType) => horizontalAlign || 'flex-start'};
     & > * {
         display: block;
     }
